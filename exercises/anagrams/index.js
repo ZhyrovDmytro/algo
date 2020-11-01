@@ -8,6 +8,48 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+
+//
+//   OBJ solution
+//
+//
+// function anagrams(stringA, stringB) {
+//     const adopted1 = objMap(stringA);
+//     const adopted2 = objMap(stringB);
+//
+//     if (Object.keys(adopted1).length !== Object.keys(adopted2).length) {
+//         return false;
+//     }
+//
+//     for (let char in adopted1) {
+//         if (adopted1[char] !== adopted2[char]) {
+//             return false
+//         }
+//     }
+//
+//     return true
+// }
+//
+// function objMap(str) {
+//     const charMap = {};
+//
+//     for(let char of str.replace(/[^\w}/]/g, "").toLowerCase()) {
+//         charMap[char] = charMap[char] + 1 || 1;
+//     }
+//
+//     return charMap;
+// }
+
+//
+// arrray sortsolution
+//
+
+function anagrams(strA, strB) {
+    return toSortedStr(strA) === toSortedStr(strB);
+}
+
+function toSortedStr(str) {
+    return str.replace(/[^\w}/]/g, "").toLowerCase().split('').sort().join('');
+}
 
 module.exports = anagrams;
